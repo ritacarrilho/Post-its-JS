@@ -1,4 +1,6 @@
-import config from '../../app.config';
+import '../../assets/styles/reset.css';
+import '../../assets/styles/style.css';
+
 import { LocalStorageService } from './Service/LocalStorageService';
 
 const STORAGE_KEY = "lidem-post-it"; // key to recover data from local storage

@@ -22,7 +22,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'post-it-js',
-      template: path.join(__dirname,'./src')
+      template: path.join(__dirname,'./src/index.html.tpl')
     })
   ],
   module: {
