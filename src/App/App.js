@@ -165,8 +165,29 @@ class App {
     }
 
     handlerNotaDelete( evt ) {
-        console.log( evt );
-        console.log( this.arrNotas );
+        // console.log( evt );
+        // console.log( this.arrNotas );
+
+        // if the post it is in editing mode, disable delete feature
+        if(this.isEditing) return;
+
+        const
+            nota = evt.detail.nota,
+            userApprobation = confirm(
+            `Are you sure you want to delete the Nota titled:
+            "${nota.title}" ?`); // TODO: replace this confirm for a html modal 
+        
+        // if the user click "Annuler" we exit this method
+        if(!userApprobation) return;
+
+        // search array index
+        const idxNota = this.arrNotas.indexOf(evt.detail.nota);
+        // otherwise we delete
+        this.arrNotas.splice(idxNota, 1); 
+                                
+        this.render();
+        // replace old array of notas for the array withou the deleted nota 
+        this.notesStorage.setJSON( this.arrNotas );
     }
 }
 

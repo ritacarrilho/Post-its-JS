@@ -12,12 +12,12 @@
 <body>
     <div class="title-bar">
         <div class="logo" logo>NotaBene</div>
-        <button type="button" class="btn" id="btn-board-clear">Tout Effacer</button>
+        <button type="button" class="btn" id="btn-board-clear">Clean Board</button>
     </div>
 
     <div class="main-zone">
         <div class="tool-bar">
-            <div class="form-title">Nouveau</div>
+            <div class="form-title">New NotaBene</div>
 
             <form action="" method="post">
                 <div class="form-row">
