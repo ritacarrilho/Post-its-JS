@@ -88,6 +88,11 @@ class App {
     handlerBoardClear() {
         if ( this.isEditing ) return;
 
+        const userApprobation = confirm('Are you sure you want to clear the board and delete all Notas ?'); // TODO: replace this confirm for a html modal 
+
+        // if the user click "Annuler" we exit this method
+        if(!userApprobation) return;
+
         this.arrNotas = []; // Vidange du tableau de Notas
         this.elBoard.innerHTML = '';// Vidange du contenu affiché de board
         this.notesStorage.clear();
@@ -155,13 +160,22 @@ class App {
     }
 
     handlerNotaEdit( evt ) {
-        console.log( evt );
-        console.log( this.arrNotas );
+        // console.log( evt );
+        // console.log( this.arrNotas );
+
+        this.isEditing = true;
     }
 
     handlerNotaSave( evt ) {
-        console.log( evt );
-        console.log( this.arrNotas );
+        // console.log( evt );
+        // console.log( this.arrNotas );
+
+        this.isEditing = false;
+        // Mise à jour de l'affichage
+        this.render();
+        
+        // Persistance des données
+        this.notesStorage.setJSON( this.arrNotas );
     }
 
     handlerNotaDelete( evt ) {
